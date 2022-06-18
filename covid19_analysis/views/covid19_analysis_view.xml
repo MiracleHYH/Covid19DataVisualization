@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <!--    to call QWeb Service    -->
+        <record id="covid19_analysis.covid19_analysis_action" model="ir.actions.client">
+            <field name="name">COVID-19 Analysis</field>
+            <field name="tag">covid19_analysis.covid19_analysis.page</field>
+        </record>
+    </data>
+</odoo>

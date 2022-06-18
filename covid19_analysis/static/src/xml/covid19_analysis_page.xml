@@ -1,0 +1,52 @@
+<template>
+    <t t-name="COVID-19 Analysis Page">
+        <div>
+            <!-- buttons to switch among (confirmed/recovered/death) data -->
+            <ul class="nav nav-tabs" id="mp1-control">
+                <li class="nav-item">
+                    <a id="btn-confirmed" class="nav-link active" href="javascript: void(0)">Confirmed</a>
+                </li>
+                <li class="nav-item">
+                    <a id="btn-recovered" class="nav-link" href="javascript: void(0)">Recovered</a>
+                </li>
+                <li class="nav-item">
+                    <a id="btn-death" class="nav-link" href="javascript: void(0)">Death</a>
+                </li>
+            </ul>
+            <!-- echarts aria1 to show map/rank view -->
+            <div id="analysis_map" style="margin:5px 30px 0px 30px; height: 500px; width:100%;"></div>
+            <nav aria-label="...">
+                <ul class="pagination justify-content-center">
+                    <li id="btn-map" class="disabled page-item">
+                        <a class="page-link" href="javascript: void(0)">Map</a>
+                    </li>
+                    <li id="btn-rank" class="page-item">
+                        <a class="page-link" href="javascript: void(0)">Rank</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- buttons to switch between (total/daily) data -->
+            <ul class="nav nav-tabs" id="mp2-control">
+                <li class="nav-item">
+                    <a id="btn-total" class="nav-link active" href="javascript: void(0)">Total Trend</a>
+                </li>
+                <li class="nav-item">
+                    <a id="btn-daily" class="nav-link" href="javascript: void(0)">Daily</a>
+                </li>
+            </ul>
+            <!-- echarts aria2 to show line-map view -->
+            <div id="dynamic_graph" style="margin:5px 30px 0px 30px; height: 200px; width:100%;"></div>
+            <!-- bottom buttons to (switch between China/World), (control the dynamic play process, yet to be done) -->
+            <nav aria-label="..." style="margin-top: 5px">
+                <ul class="pagination justify-content-center">
+                    <li id="btn-switch" class="page-item">
+                        <a class="page-link" href="javascript: void(0)">
+                            <span class="glyphicon glyphicon-refresh"></span>
+                            <span id="btn-switch-text">Switch to China</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </t>
+</template>

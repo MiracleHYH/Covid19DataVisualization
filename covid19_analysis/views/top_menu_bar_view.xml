@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+        <!-- root menu item -->
+        <menuitem name="COVID-19 Analysis" id="covid19_analysis.menu_root" groups="base.group_user"/>
+        <!-- top menu item -->
+        <!-- Data Page Entrance -->
+        <menuitem name="COVID-19 Data"
+                  id="covid19_analysis.covid19_data_menu"
+                  parent="covid19_analysis.menu_root"
+                  action="covid19_analysis.covid19_data_action"/>
+        <!-- Analysis Page Entrance -->
+        <menuitem name="COVID-19 Analysis"
+                  id="covid19_analysis.covid19_analysis_menu"
+                  parent="covid19_analysis.menu_root"
+                  action="covid19_analysis.covid19_analysis_action"/>
+        <!-- Spread History Page Entrance -->
+        <menuitem name="COVID-19 Spread History"
+                  id="covid19_analysis.covid19_spread_menu"
+                  parent="covid19_analysis.menu_root"
+                  action="covid19_analysis.covid19_spread_action"/>
+    </data>
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_covid19_data_group_user,covid19.data,model_covid19_data,base.group_user,1,1,1,1
+access_covid19_analysis_group_user,covid19.analysis,model_covid19_analysis,base.group_user,1,1,1,1
+access_covid19_spread_group_user,covid19.spread,model_covid19_spread,base.group_user,1,1,1,1

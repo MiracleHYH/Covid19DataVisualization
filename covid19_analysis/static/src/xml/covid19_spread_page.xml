@@ -1,0 +1,181 @@
+<template>
+    <t t-name="COVID-19 Spread History Page">
+        <div class="d-flex flex-row" style="width: 96%; height: 98%; margin:1% 2% 1% 2%;">
+            <!-- left data view -->
+            <div region="west" class="west panel panel-default card" style="width: 20%; margin-right:2px;">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Spread History Dashboard</h3>
+                </div>
+                <div class="panel-body" style="width: 100%">
+                    <!-- button to (switch between China/World) -->
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <button id="btn-country-switch" type="button" class="btn btn-fill-primary">
+                            <span class="glyphicon glyphicon-refresh" style="font-size:20px"></span>
+                            <span id="btn-country-switch-text" style="font-size:20px">China</span>
+                        </button>
+                    </div>
+                    <!-- Calendar -->
+                    <div class="row mt-1">
+                        <div class="col-lg-12">
+                            <div class="input-group">
+                                <input id="calendar" type="text" class="form-control readonly"
+                                       style="text-align: center; font-size: 20px;"/>
+                                <span class="input-group-addon col-lg-2">
+                                    <i class="glyphicon glyphicon-calendar mt-1" style="font-size: 20px;"></i>
+                                </span>
+                            </div><!-- /input-group -->
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                    <!-- progress control -->
+                    <div class="row mt-1">
+                        <!-- progress bar -->
+                        <div class="col-lg-11" style="height: 25px;">
+                            <div class="progress" style="height: 25px;">
+                                <div id="progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0"
+                                     aria-valuemin="0"
+                                     aria-valuemax="100" style="height: 25px; width: 0">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- control button-->
+                        <div class="col-lg-pull-1" style="margin-left:-15px; height: 25px;">
+                            <button id="btn-play" class="btn btn-fill-primary pull-left"
+                                    style="height: 25px; line-height:10px; width: 30px;">
+                                <span><i class="glyphicon glyphicon-play"></i></span>
+                            </button>
+                            <button id="btn-pause" class="btn btn-fill-primary pull-left hidden"
+                                    style="height: 25px; line-height:10px; width: 30px;">
+                                <span><i class="glyphicon glyphicon-pause"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                    <!--  data counting-->
+                    <!-- digit view -->
+                    <div class="row mt-1">
+                        <!-- up-to-now -->
+                        <div class="col-sm-6">
+                            <div class="card w-100 mb-1">
+                                <div class="card-body">
+                                    <h5 class="card-title">累计确诊</h5>
+                                    <h1 id="u_confirmed_number" class="display-5 mt-1 mb-3">0</h1>
+                                    <div class="mb-1">
+                                        <span id="u_confirmed_rate">
+                                            <i id="u_confirmed_rate_icon_up"
+                                               class="glyphicon glyphicon-arrow-up hidden"></i>
+                                            <i id="u_confirmed_rate_icon_down"
+                                               class="glyphicon glyphicon-arrow-down hidden"></i>
+                                            <i id="u_confirmed_rate_number">0</i>
+                                        </span>
+                                        <span class="text-muted"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card w-100 mb-1">
+                                <div class="card-body">
+                                    <h5 class="card-title">累计死亡</h5>
+                                    <h1 id="u_death_number" class="display-5 mt-1 mb-3">0</h1>
+                                    <div class="mb-1">
+                                        <span id="u_death_rate">
+                                            <i id="u_death_rate_icon_up"
+                                               class="glyphicon glyphicon-arrow-up hidden"></i>
+                                            <i id="u_death_rate_icon_down"
+                                               class="glyphicon glyphicon-arrow-down hidden"></i>
+                                            <i id="u_death_rate_number">0</i>
+                                        </span>
+                                        <span class="text-muted"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card w-100 mb-1">
+                                <div class="card-body">
+                                    <h5 class="card-title">累计治愈</h5>
+                                    <h1 id="u_recovered_number" class="display-5 mt-1 mb-3">0</h1>
+                                    <div class="mb-1">
+                                        <span id="u_recovered_rate">
+                                            <i id="u_recovered_rate_icon_up"
+                                               class="glyphicon glyphicon-arrow-up hidden"></i>
+                                            <i id="u_recovered_rate_icon_down"
+                                               class="glyphicon glyphicon-arrow-down hidden"></i>
+                                            <i id="u_recovered_rate_number">0</i>
+                                        </span>
+                                        <span class="text-muted"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- today -->
+                        <div class="col-sm-6">
+                            <div class="card w-100 mb-1">
+                                <div class="card-body">
+                                    <h5 class="card-title">新增确诊</h5>
+                                    <h1 id="confirmed_number" class="display-5 mt-1 mb-3">0</h1>
+                                    <div class="mb-1">
+                                        <span id="confirmed_rate">
+                                            <i id="confirmed_rate_icon_up"
+                                               class="glyphicon glyphicon-arrow-up hidden"></i>
+                                            <i id="confirmed_rate_icon_down"
+                                               class="glyphicon glyphicon-arrow-down hidden"></i>
+                                            <i id="confirmed_rate_number">0</i>
+                                        </span>
+                                        <span class="text-muted"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card w-100 mb-1">
+                                <div class="card-body">
+                                    <h5 class="card-title">新增死亡</h5>
+                                    <h1 id="death_number" class="display-5 mt-1 mb-3">0</h1>
+                                    <div class="mb-1">
+                                        <span id="death_rate">
+                                            <i id="death_rate_icon_up" class="glyphicon glyphicon-arrow-up hidden"></i>
+                                            <i id="death_rate_icon_down"
+                                               class="glyphicon glyphicon-arrow-down hidden"></i>
+                                            <i id="death_rate_number">0</i>
+                                        </span>
+                                        <span class="text-muted"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card w-100 mb-1">
+                                <div class="card-body">
+                                    <h5 class="card-title">新增治愈</h5>
+                                    <h1 id="recovered_number" class="display-5 mt-1 mb-3">0</h1>
+                                    <div class="mb-1">
+                                        <span id="recovered_rate">
+                                            <i id="recovered_rate_icon_up"
+                                               class="glyphicon glyphicon-arrow-up hidden"></i>
+                                            <i id="recovered_rate_icon_down"
+                                               class="glyphicon glyphicon-arrow-down hidden"></i>
+                                            <i id="recovered_rate_number">0</i>
+                                        </span>
+                                        <span class="text-muted"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- echarts view -->
+                    <div class="card mt-1">
+                        <!-- echarts map of up-to-now data -->
+                        <div class="col-lg-12 mt-1">
+                            <div class="card-title"><h3>累计数据</h3></div>
+                            <div id="up_to_now_chart" style="height: 130px;">
+                            </div>
+                        </div>
+                        <!-- echarts map of today data -->
+                        <div class="col-lg-12 mt-1">
+                            <div class="card-title"><h3>今日数据</h3></div>
+                            <div id="today_chart" style="height: 130px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- right data view -->
+            <div region="center" class="center flex-fill panel panel-primary card" style="margin-left:2px;">
+                <div id="distribution_map" style="height: 100%;">
+                </div>
+            </div>
+        </div>
+    </t>
+</template>

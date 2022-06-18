@@ -1,0 +1,1 @@
+数据的时间格式不统一，通过data_modify.py统一了covid_19_data.scv的数据，保存为covid_19_data_modified.csv。
