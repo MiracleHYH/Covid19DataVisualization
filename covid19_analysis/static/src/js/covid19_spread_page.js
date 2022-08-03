@@ -404,8 +404,8 @@ odoo.define('covid19_spread.page', function (require) {
                 option = {
                     title: {
                         text: title + 'COVID-19 Dynamic Distribution Chart',
-                        subtext: 'Source form: Digital China',
-                        sublink: 'http://www.digitalchina.com/'
+                        subtext: '***',
+                        sublink: '***'
                     },
                     tooltip: {
                         trigger: 'item',
