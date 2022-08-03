@@ -25,7 +25,7 @@ odoo.define('covid19_analysis.page', function (require) {
             'click #btn-to_end': 'to_end'
         },
 
-        // switch to map view
+        // switch to map viewdi
         show_map: function (event) {
             if (is_in_map) return;
             is_in_map = true;
@@ -222,8 +222,8 @@ odoo.define('covid19_analysis.page', function (require) {
                 option = {
                     title: {
                         text: title + 'COVID-19 Distribution Chart',
-                        subtext: 'Source form: Digital China',
-                        sublink: 'http://www.digitalchina.com/'
+                        subtext: 'Source form: ***',
+                        sublink: '***'
                     },
                     tooltip: {
                         trigger: 'item',
@@ -298,8 +298,8 @@ odoo.define('covid19_analysis.page', function (require) {
             option = {
                 title: {
                     text: title + 'COVID-19 ' + data_type + ' Rank',
-                    subtext: 'Source form: Digital China',
-                    sublink: 'https://www.digitalchina.com/'
+                    subtext: 'Source form: ***',
+                    sublink: '***'
                 },
                 tooltip: {
                     trigger: 'axis',
